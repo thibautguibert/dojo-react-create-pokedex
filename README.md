@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+Bienvenue sur le Dojo Pokédex en React !
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+L'objectif est de créer un pokédex de la 1ère génération en React avec comme feature :
+- un affichage de 151 cartes pokémon aléatoires
+- des onglets par types de pokémon
+- une fonction recherche pour trouver un pokémon
 
-## Available Scripts
 
-In the project directory, you can run:
+Commençons dès maintenant !
 
-### `npm start`
+1. Créez un composant fonction nommé Card qui affiche Bulbizarre avec comme info :
+- son numéro de Pokédex, son nom, son image de face et de dos, ainsi que ses types.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Reprenez pour cela les éléments de l'objet qui suit: 
+bulbasaur = {
+    id: 1,
+    name: "bulbasaur",
+    sprites: {
+        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+    }
+    types: [
+    {
+        slot: 1,
+        type: {
+            name: "grass"
+        }
+    },
+    {
+        slot: 2,
+        type: {
+            name: "poison"
+        }
+    }
+]
+}
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Importez le fichier card.css dans votre composant, et aidez-vous des classes présentes dans ce composant pour l'affichage. Un exemple de visuel est donné dans src (venusaur-card.png).
 
-### `npm test`
+Vous arrivez à afficher la carte de bulbizarre dans l'app ? Génial ! Passez à l'étape 2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Modifiez le composant Card pour le rentre dynamique, en le paramétrant avec les props suivantes :
+- id
+- name
+- sprites.back_default
+- sprites.front_default
+- type1
+- type2
 
-### `npm run build`
+Ensuite, modifiez l'App.js pour que le composant Card prenne les props de Bulbizarre. Une fois cela fait, affichons une seconde carte pour Salamèche !
+Voici les infos de Salamèche :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+charmander = {
+    id: 4,
+    name: "charmander",
+    sprites: {
+        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
+        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+    }
+    types: [
+    {
+        slot: 1,
+        type: {
+            name: "fire"
+        }
+    }
+]
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+On remarque que Salamèche n'a qu'un type. Vous pouvez alors lui donner "none" comme valeur de la prop type2.

@@ -1,0 +1,159 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -1px 4px 6px rgba(0,0,0, 0.2);
+    margin: 10px;
+}
+
+.card header {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lavender;
+}
+
+.card header .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card header .id{
+    font-size: 14px;
+    font-weight: bold;
+    color: grey;
+}
+
+.card .sprite-container{
+    display: flex;
+    height: 150px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.card .sprite-container .front-sprite {
+    height: 125px;
+}
+
+.card .sprite-container .back-sprite {
+    height: 50px;
+}
+
+.card .type-container {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+}
+
+
+.card .type-container .type{
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    border: solid 2.5px rgba(0,0,0, 0.2);
+    background-color: lavender;
+}
+
+.card .type-container .grass {
+    background-color: mediumseagreen;
+    color: whitesmoke;
+}
+
+.card .type-container .poison {
+    background-color: purple;
+    color: whitesmoke;
+}
+
+.card .type-container .normal {
+    background-color: seashell;
+    color:dimgrey;
+}
+
+.card .type-container .fire {
+    background-color: orangered;
+    color:whitesmoke;
+}
+
+.card .type-container .water {
+    background-color: dodgerblue;
+    color:whitesmoke;
+}
+
+.card .type-container .electric {
+    background-color: gold;
+    color:dimgrey;
+}
+
+.card .type-container .ice {
+    background-color: paleturquoise;
+    color:dimgray;
+}
+
+.card .type-container .fighting {
+    background-color: brown;
+    color:whitesmoke;
+}
+
+.card .type-container .ground {
+    background-color: wheat;
+    color:dimgray;
+}
+
+.card .type-container .flying {
+    background-color: light;
+    color:dimgray;
+}
+
+.card .type-container .steel {
+    background-color: LightSteelBlue;
+    color:whitesmoke;
+}
+
+.card .type-container .psychic {
+    background-color: deeppink;
+    color:whitesmoke;
+}
+
+.card .type-container .bug {
+    background-color: yellowgreen;
+    color:whitesmoke;
+}
+
+.card .type-container .rock {
+    background-color: DarkGoldenrod;
+    color:whitesmoke;
+}
+
+.card .type-container .ghost {
+    background-color: darkslateblue;
+    color:whitesmoke;
+}
+
+.card .type-container .dark {
+    background-color: darkslategrey;
+    color:whitesmoke;
+}
+
+.card .type-container .dragon {
+    background-color: mediumslateblue;
+    color:whitesmoke;
+}
+
+.card .type-container .fairy {
+    background-color: lightpink;
+    color:whitesmoke;
+}
+
+.card .type-container .none {
+    display: none;
+}
