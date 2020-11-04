@@ -1,5 +1,6 @@
 import './App.css';
 import Card from './components/Card';
+import Pokedex from './components/Pokedex';
 
 const bulbasaur = {
   id: 1,
@@ -40,6 +41,7 @@ function App() {
         name={charmander.name}
         sprites={charmander.sprites}
         types={charmander.types} />
+      <Pokedex />
     </div>
   );
 }
