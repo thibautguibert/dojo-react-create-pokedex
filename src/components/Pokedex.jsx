@@ -1,5 +1,6 @@
 import './card.css';
 import Card from './Card';
+import './pokedex.css';
 
 const kantoPokedex = [
     {
@@ -7,7 +8,9 @@ const kantoPokedex = [
         name: "bulbasaur",
         sprites: {
             back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
-            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+            back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png",
+            front_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
         },
         types: [
             "grass", "poison"
@@ -18,7 +21,9 @@ const kantoPokedex = [
         name: "charmander",
         sprites: {
             back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
-            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+            back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/4.png",
+            front_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png",
         },
         types: [
             "fire"
@@ -29,7 +34,9 @@ const kantoPokedex = [
         name: "squirtle",
         sprites: {
             back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png",
-            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+            front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+            back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/7.png",
+            front_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png",
         },
         types: [
             "water"
@@ -40,7 +47,9 @@ const kantoPokedex = [
 
 function Pokedex() {
     return (
-        kantoPokedex.map(pokemon => <Card key={pokemon.id} {...pokemon} />)
+        <div className="pokedex-container">
+            {kantoPokedex.map(pokemon => <Card key={pokemon.id} {...pokemon} />)}
+        </div>
     )
 }
 

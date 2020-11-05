@@ -99,4 +99,44 @@ kantoPokedex = [
 Une fois le composant Card importé dans Pokedex, et votre tableau présent dans le fichier, utilisez la méthode map pour afficher les 3 cartes.
 Pensez à appeler le composant Pokedex dans l'app. Les 3 cartes s'affichent bien ? Vous pouvez enlever les composants Card précédents de l'app, et passer à la suite !
 
-4. 
+4. Maintenant que vous arrivez à afficher des cartes statiques, on passe à l'étape supérieure : modifier le state de nos composants.
+
+Peut-être ne le savez-vous pas, mais toutes les espèces de pokémon ont une version très rare qui a une couleur différente. On les appelle les "Shiny" ou "chromatique". 
+On va ajouter sur le composant Card un bouton "shiny" qui changera l'image du pokémon sur la carte en sa version Shiny.
+
+A. Commençons par créer le bouton dans le composant Card.
+Il faut lui ajouter un attribut qui va permettre de gérer un événement de clic. 
+Donnez-lui la classe shiny-btn, et ✨ comme chaine de caractères.
+
+Vérifions que le bouton s'affiche bien sur la carte. C'est bon ?
+Passons à la fonction qui va gérer le changement de state grâce au clic du bouton.
+Pour l'instant on va simplement vouloir changer une clé "active" qui sera un booléen. Si elle est vraie, alors on ajoute la classe "active" au bouton, sinon non. 
+
+Vous coincez ?
+Procédons par étape : 
+- on va changer Card en un composant de classe.
+- on va créer un objet state dans le constructor, et lui donner une clé active: false
+- on va ensuite créer une fonction qui va changer la valeur de active quand il y aura un clic (avec la méthode setstate)
+- enfin, on modifie la classe du bouton suivant la valeur de active avec un ternaire (il y a une classe active dans le css pour le bouton)
+
+B. Attaquons nous maintenant à la modification des images ! 
+Mettons d'abord à jour notre tableau pokédex Kanto en rajoutant ces lignes dans les objets sprite:
+
+- bulbizarre:
+back_shiny:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png",
+front_shiny:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
+
+
+- salamèche:
+back_shiny:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/4.png",
+front_shiny:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png",
+
+
+- carapuce:
+back_shiny:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/7.png",
+front_shiny:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png",
+
+De la même manière que pour la classe du bouton, on va pouvoir décider quelle lien est choisi comme source de nos balises images suivant l'état de active.
+C'est beau le state, non ? Par contre les shiny sont moches, on est d'accord !
+
+Et voilà, la première partie du dojo est finie ! 

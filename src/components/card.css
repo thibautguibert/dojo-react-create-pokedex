@@ -1,8 +1,9 @@
 .card {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 200px;
-    height: 250px;
+    height: 277.25px;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -45,6 +46,19 @@
 
 .card .sprite-container .back-sprite {
     height: 50px;
+}
+
+.card .shiny-btn {
+    width: 50px;
+    border: none;
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.card .active {
+    filter: grayscale(0%);
 }
 
 .card .type-container {
