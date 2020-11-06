@@ -154,3 +154,5 @@ A. On va faire un premier appel à l'API dans le composant Pokédex pour récup�
 Pour bien comprendre commment fonctionne l'API, on va seulement récupérer les infos d'un pokémon au hasard, qu'on affichera s'ils cliquent sur un bouton au Hasard.
 Créer le bouton Hasard dans le composant Pokédex et donner lui une fonction qui lors d'un clic affichera une carte au hasard.
 
+--> déplacer le bouton, la fonction et le state dans un nouveau composant RandomPoke. Décrire certaines étapes dans le readMe !
+
