@@ -17,13 +17,13 @@ class Card extends React.Component {
 
     render() {
         const { active } = this.state;
-        const { sprites } = this.props;
+        const { name, id, sprites, types } = this.props;
         return (
 
             <div className="card">
                 <header>
-                    <p className="name">{this.props.name}</p>
-                    <p className="id">{this.props.id}</p>
+                    <p className="name">{name}</p>
+                    <p className="id">{id}</p>
                 </header>
                 <figure className="sprite-container">
                     <img
@@ -41,8 +41,8 @@ class Card extends React.Component {
                     onClick={this.handleClick}
                 >✨</button>
                 <div className="type-container">
-                    <div className={"type " + this.props.types[0]}>{this.props.types[0]}</div>
-                    <div className={this.props.types[1] ? "type " + this.props.types[1] : "none"}>{this.props.types[1]}</div>
+                    <div className={"type " + types[0]}>{types[0]}</div>
+                    <div className={types[1] ? "type " + types[1] : "none"}>{types[1]}</div>
                 </div>
             </div>
         )
