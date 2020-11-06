@@ -1,5 +1,6 @@
 import './App.css';
 import Pokedex from './components/Pokedex';
+import RandomPoke from './components/RandomPoke';
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <p>Let start the dojo!</p>
       <Pokedex />
+      <RandomPoke />
     </div>
   );
 }
