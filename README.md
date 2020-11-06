@@ -140,3 +140,17 @@ De la même manière que pour la classe du bouton, on va pouvoir décider quelle
 C'est beau le state, non ? Par contre les shiny sont moches, on est d'accord !
 
 Et voilà, la première partie du dojo est finie ! 
+
+5. Bienvenue dans la seconde partie du dojo, celle où l'on met fin au copier-coller de nos tableaux en dur. 
+Nous allons maintenant aller chercher nos données dans l'API PokéAPI, pour que les 151 cartes se remplissent de manière automatique.
+
+Commençons par nous familiariser avec la documentation de PokéAPI :
+https://pokeapi.co
+Quand vous arrivez à trouver quel lien nous sort un tableau de 151 éléments contenant les 151 premiers pokémon, on va pouvoir passer à la suite.
+Regardez bien en détail comment les infos dont on a besoin sont rangées dans les tableaux, ce sera essentiel.
+
+A. On va faire un premier appel à l'API dans le composant Pokédex pour récupérer le tableau des 151 pokémon. 
+
+Pour bien comprendre commment fonctionne l'API, on va seulement récupérer les infos d'un pokémon au hasard, qu'on affichera s'ils cliquent sur un bouton au Hasard.
+Créer le bouton Hasard dans le composant Pokédex et donner lui une fonction qui lors d'un clic affichera une carte au hasard.
+
