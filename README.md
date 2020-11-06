@@ -183,8 +183,7 @@ Petite aide pour le type, qui est assez dur à aller chercher. Voici le genre de
 
 Pensez à importer RandomPoke dans l'app pour voir comment votre fonction marche.
 
-B. Il reste à finaliser quelques éléments pour que nos cartes soient parfaites. D'abord, vous remarquez peut etre un souci au niveau du second type d'un pokémon. S'il n'en a pas, il va 
-garder le type du précédent pokémon... pas terrible ! 
+B. Il reste à finaliser quelques éléments pour que nos cartes soient parfaites. D'abord, vous remarquez peut etre un souci au niveau du second type d'un pokémon. S'il n'en a pas, il va garder le type du précédent pokémon... pas terrible ! 
 
 On va donc rajouter une condition dans notre fonction. Si le 2eme type n'existe pas, alors on va réinitialiser notre clé types[1] au sein de notre state.
 
@@ -193,6 +192,17 @@ Enfin, un gros problème d'affichage arrive lorsqu'on n'a pas encore appuyé sur
 
 On va créer un opérateur ternaire pour afficher le composant Card dans notre Render, avec un booléen stocké dans le state. Celui ci sera faux tant que le bouton n'aura pas été cliqué. Sinon, on n'affiche tout simplement rien.
 
+6. Maintenant qu'on a réussi à appeler l'API : barre de recherche et affichage de la carte du poke en question (formulaire contrôlé)
 
+7. les route : avec 3 onglets pokédex, random et search (react router)
 
+8. faire un appel à l'API pour afficher le pokédex entier (utilisation de DidMount)
+
+9. faire un sélecteur pour afficher le pokédex de différentes générations (utilisation de DidUpdate)
+
+10. peaufiner l'onglet random pour afficher 1 team de 6 pokémon avec le bouton. (Peut etre ajouter des checkbox pour pokémon évolués/pas évolués pour utiliser filter)
+
+11. peaufiner la barre de recherche pour qu'elle fonctionne comme un filtre qui inclut la chaine de caractère tapée.
+
+12. Exo pour utiliser les hooks
 
