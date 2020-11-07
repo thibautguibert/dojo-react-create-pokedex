@@ -192,7 +192,13 @@ Enfin, un gros problème d'affichage arrive lorsqu'on n'a pas encore appuyé sur
 
 On va créer un opérateur ternaire pour afficher le composant Card dans notre Render, avec un booléen stocké dans le state. Celui ci sera faux tant que le bouton n'aura pas été cliqué. Sinon, on n'affiche tout simplement rien.
 
-6. Maintenant qu'on a réussi à appeler l'API : barre de recherche et affichage de la carte du poke en question (formulaire contrôlé)
+6. Maintenant qu'on a réussi à appeler l'API, plus rien ne peut nous arrêter. Créons un nouveau composant SearchPoke comportant une barre de recherche et un bouton : nous voulons afficher la carte du pokémon recherché ! 
+
+Dans React, il est conseillé de lier la value d'un input à une clé du state. Faites cela, puis créez une fonction qui mettra à jour le state grâce à l'attribut onChange de l'input.
+
+Passons au bouton ! 
+
+barre de recherche et affichage de la carte du poke en question (formulaire contrôlé)
 
 7. les route : avec 3 onglets pokédex, random et search (react router)
 
