@@ -2,6 +2,7 @@ Bienvenue sur le Dojo Pokédex en React !
 
 L'objectif est de créer un pokédex de la 1ère génération en React avec comme feature :
 - un affichage de 151 cartes pokémon
+- onglet qui crée une équipe aléatoire de 6 pokémon
 - des onglets par type de pokémon
 - une fonction recherche pour trouver un pokémon
 
@@ -142,15 +143,72 @@ C'est beau le state, non ? Par contre les shiny sont moches, on est d'accord !
 Et voilà, la première partie du dojo est finie ! 
 
 5. Bienvenue dans la seconde partie du dojo, celle où l'on met fin au copier-coller de nos tableaux en dur. 
-Nous allons maintenant aller chercher nos données dans l'API PokéAPI, pour que les 151 cartes se remplissent de manière automatique.
+Nous allons maintenant aller chercher nos données dans l'API PokéAPI, pour générer une carte pokémon aléatoire
 
 Commençons par nous familiariser avec la documentation de PokéAPI :
 https://pokeapi.co
-Quand vous arrivez à trouver quel lien nous sort un tableau de 151 éléments contenant les 151 premiers pokémon, on va pouvoir passer à la suite.
-Regardez bien en détail comment les infos dont on a besoin sont rangées dans les tableaux, ce sera essentiel.
+Quand vous arrivez à comprendre la structure du tableau que nous renvoie la requête, on peut passer à la suite.
 
-A. On va faire un premier appel à l'API dans le composant Pokédex pour récupérer le tableau des 151 pokémon. 
+A. On va faire un premier appel à l'API dans un nouveau composant RandomPoke
 
 Pour bien comprendre commment fonctionne l'API, on va seulement récupérer les infos d'un pokémon au hasard, qu'on affichera s'ils cliquent sur un bouton au Hasard.
-Créer le bouton Hasard dans le composant Pokédex et donner lui une fonction qui lors d'un clic affichera une carte au hasard.
+Créer le bouton Hasard dans le composant RandomPoke et donnez lui une fonction qui lors d'un clic affichera une carte au hasard.
+
+Avant de créer cette fonction, on va importer le composant Card dans notre fichier, et l'afficher sous le bouton.
+Pour commencer, on va lui donner des props nulles, via le state de notre composant PokeRandom.
+
+si vous bloquez un peu, voici le genre d'objet que l'on peut mettre dans notre state : 
+randomPokemon: {
+                id: 0,
+                name: "",
+                sprites: {
+                    back_default: "",
+                    front_default: "",
+                    back_shiny: "",
+                    front_shiny: ""
+                },
+                types: [
+                    "null", ""
+                ]
+            }
+
+Passons à la fonction ! Celle-c est en fait celle qui va récupérer les données de l'API.
+Pour cela, on va installer axios, qui est une meilleure méthode que fetch pour faire des appels à l'API.
+(npm i axios dans le terminal).
+
+On souhaite récupérer les données d'un pokémon aléatoire et mettre à jour le state avec ces données. Ainsi, les props de la Card seront mises à jour, donc son affichage aussi.
+
+Petite aide pour le type, qui est assez dur à aller chercher. Voici le genre de code qu'on peut avoir dans notre fonction setState :
+    randomPokemon.types[0] = data.types[0].type.name;
+
+Pensez à importer RandomPoke dans l'app pour voir comment votre fonction marche.
+
+B. Il reste à finaliser quelques éléments pour que nos cartes soient parfaites. D'abord, vous remarquez peut etre un souci au niveau du second type d'un pokémon. S'il n'en a pas, il va garder le type du précédent pokémon... pas terrible ! 
+
+On va donc rajouter une condition dans notre fonction. Si le 2eme type n'existe pas, alors on va réinitialiser notre clé types[1] au sein de notre state.
+
+Enfin, un gros problème d'affichage arrive lorsqu'on n'a pas encore appuyé sur le bouton... La carte s'affiche, mais avec des props vides... et donc sans image.
+2 façons d'y rémédier. Soit on met un state par défaut qui n'est pas vide. Sinon, beaucoup mieux :
+
+On va créer un opérateur ternaire pour afficher le composant Card dans notre Render, avec un booléen stocké dans le state. Celui ci sera faux tant que le bouton n'aura pas été cliqué. Sinon, on n'affiche tout simplement rien.
+
+6. Maintenant qu'on a réussi à appeler l'API, plus rien ne peut nous arrêter. Créons un nouveau composant SearchPoke comportant une barre de recherche et un bouton : nous voulons afficher la carte du pokémon recherché ! 
+
+Dans React, il est conseillé de lier la value d'un input à une clé du state. Faites cela, puis créez une fonction qui mettra à jour le state grâce à l'attribut onChange de l'input.
+
+Passons au bouton ! 
+
+barre de recherche et affichage de la carte du poke en question (formulaire contrôlé)
+
+7. les route : avec 3 onglets pokédex, random et search (react router)
+
+8. faire un appel à l'API pour afficher le pokédex entier (utilisation de DidMount)
+
+9. faire un sélecteur pour afficher le pokédex de différentes générations (utilisation de DidUpdate)
+
+10. peaufiner l'onglet random pour afficher 1 team de 6 pokémon avec le bouton. (Peut etre ajouter des checkbox pour pokémon évolués/pas évolués pour utiliser filter)
+
+11. peaufiner la barre de recherche pour qu'elle fonctionne comme un filtre qui inclut la chaine de caractère tapée.
+
+12. Exo pour utiliser les hooks
 
