@@ -1,7 +1,23 @@
 .search-container {
     display: flex;
     align-items: center;
+    height: 350px;
+    flex-wrap: wrap;
 }
+
+.search-container .input-container {
+    display: flex;
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+.search-container .input-container p {
+    display: block;
+    color: blueviolet;
+    font-size: 12px;
+    padding-right: 50px;
+}
+
 
 .search-container .search-bar {
     border-radius: 30px;

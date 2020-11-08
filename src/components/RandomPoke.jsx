@@ -39,7 +39,6 @@ class RandomPoke extends React.Component {
                     if (data.types[1]) {
                         randomPokemon.types[1] = data.types[1].type.name
                     }
-                    console.log(randomPokemon);
                     return { randomPokemon };
                 })
                 this.setState(
