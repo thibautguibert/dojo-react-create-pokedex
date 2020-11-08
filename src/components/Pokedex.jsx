@@ -2,6 +2,7 @@ import React from 'react';
 import './card.css';
 import './pokedex.css';
 import Card from './Card';
+import Navbar from './Navbar';
 
 const kantoPokedex = [
     {
@@ -47,9 +48,12 @@ const kantoPokedex = [
 
 function Pokedex() {
     return (
-        <div className="pokedex-container" >
-            { kantoPokedex.map(pokemon => <Card key={pokemon.id} {...pokemon} />)}
-        </div >
+        <div>
+            <Navbar />
+            <div className="pokedex-container" >
+                {kantoPokedex.map(pokemon => <Card key={pokemon.id} {...pokemon} />)}
+            </div >
+        </div>
     )
 }
 export default Pokedex;

@@ -1,7 +1,9 @@
 import React from 'react';
-import './searchPoke.css';
 import axios from 'axios';
 import Card from './Card';
+import Navbar from './Navbar';
+import './searchPoke.css';
+
 
 class SearchPoke extends React.Component {
     constructor() {
@@ -65,30 +67,33 @@ class SearchPoke extends React.Component {
     render() {
         const { searchedPokemon } = this.state;
         return (
-            <div className="search-container" >
-                <div className="input-container">
-                    <input
-                        className="search-bar"
-                        type="text"
-                        placeholder="enter a pokemon name"
-                        value={this.state.inputValue}
-                        onChange={this.handleChange}
-                    />
-                    <button
-                        type="button"
-                        className="search-btn"
-                        onClick={this.getPokeFromSearch}
-                    >🔍 </button>
-                    <p className="error-message">
-                        {this.state.errorMessage}
-                    </p>
+            <div>
+                <Navbar />
+                <div className="search-container" >
+                    <div className="input-container">
+                        <input
+                            className="search-bar"
+                            type="text"
+                            placeholder="enter a pokemon name"
+                            value={this.state.inputValue}
+                            onChange={this.handleChange}
+                        />
+                        <button
+                            type="button"
+                            className="search-btn"
+                            onClick={this.getPokeFromSearch}
+                        >🔍 </button>
+                        <p className="error-message">
+                            {this.state.errorMessage}
+                        </p>
+                    </div>
+                    {this.state.searchDisplay ? < Card
+                        name={searchedPokemon.name}
+                        id={searchedPokemon.id}
+                        sprites={searchedPokemon.sprites}
+                        types={searchedPokemon.types}
+                    /> : ""}
                 </div>
-                {this.state.searchDisplay ? < Card
-                    name={searchedPokemon.name}
-                    id={searchedPokemon.id}
-                    sprites={searchedPokemon.sprites}
-                    types={searchedPokemon.types}
-                /> : ""}
             </div>
         )
     }

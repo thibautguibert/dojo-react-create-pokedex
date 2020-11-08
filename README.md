@@ -196,11 +196,25 @@ On va créer un opérateur ternaire pour afficher le composant Card dans notre R
 
 Dans React, il est conseillé de lier la value d'un input à une clé du state. Faites cela, puis créez une fonction qui mettra à jour le state grâce à l'attribut onChange de l'input.
 
-Passons au bouton ! 
+Passons au bouton ! Vous pouvez utiliser cette icone comme contenu 🔍
 
-barre de recherche et affichage de la carte du poke en question (formulaire contrôlé)
+La fonction liée au bouton va être assez similaire à celle du composant RandomPoke, à un détail près. Il va falloir gérer les cas où l'utilisateur rentre un mauvais nom de pokémon.
+Vous pouvez utiliser le ".catch" d'Axios pour gérer les erreurs 400 en cas de mauvais nom.
 
-7. les route : avec 3 onglets pokédex, random et search (react router)
+7. Nous avons maintenant les 3 fonctionnalités de base de notre application. Structurons là pour qu'elle ait un onglet par fonctionnalité. 
+Nous allons utiliser le module react-router-dom pour cela. Il est pré-installé. Importons dès à présent le module dans App.js :
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+Faites de notre composant Pokédex la page d'accueil. Puis créons un composant Navbar qui va afficher les 3 liens. On l'importera dans nos 3 pages !
+
+
+les route : avec 3 onglets pokédex, random et search (react router)
 
 8. faire un appel à l'API pour afficher le pokédex entier (utilisation de DidMount)
 

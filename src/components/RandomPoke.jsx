@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from './Card';
 import axios from 'axios';
+import Card from './Card';
+import Navbar from './Navbar';
 import './randomPoke.css';
 
 class RandomPoke extends React.Component {
@@ -50,18 +51,21 @@ class RandomPoke extends React.Component {
     render() {
         const { randomPokemon } = this.state;
         return (
-            <div className="random-container">
-                < button
-                    type="button"
-                    className="random"
-                    onClick={this.getRandomPokemon}
-                > Un pokémon au hasard</button>
-                {this.state.randomDisplay ? < Card
-                    name={randomPokemon.name}
-                    id={randomPokemon.id}
-                    sprites={randomPokemon.sprites}
-                    types={randomPokemon.types}
-                /> : ""}
+            <div>
+                <Navbar />
+                <div className="random-container">
+                    < button
+                        type="button"
+                        className="random"
+                        onClick={this.getRandomPokemon}
+                    > Un pokémon au hasard</button>
+                    {this.state.randomDisplay ? < Card
+                        name={randomPokemon.name}
+                        id={randomPokemon.id}
+                        sprites={randomPokemon.sprites}
+                        types={randomPokemon.types}
+                    /> : ""}
+                </div>
             </div>
         )
     }
