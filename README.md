@@ -109,9 +109,9 @@ A. Commençons par créer le bouton dans le composant Card.
 Il faut lui ajouter un attribut qui va permettre de gérer un événement de clic. 
 Donnez-lui la classe shiny-btn, et ✨ comme chaine de caractères.
 
-Vérifions que le bouton s'affiche bien sur la carte. C'est bon ?
+Vérifions que le bouton s'affiche bien sur la carte. C'est bon ? OK
 Passons à la fonction qui va gérer le changement de state grâce au clic du bouton.
-Pour l'instant on va simplement vouloir changer une clé "active" qui sera un booléen. Si elle est vraie, alors on ajoute la classe "active" au bouton, sinon non. 
+Pour l'instant on va simplement vouloir changer une clé "active" qui sera un booléen. Si elle est vraie, alors on ajoute la classe "active" au bouton, sinon non.
 
 Vous coincez ?
 Procédons par étape : 
