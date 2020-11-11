@@ -192,7 +192,7 @@ Enfin, un gros problème d'affichage arrive lorsqu'on n'a pas encore appuyé sur
 
 On va créer un opérateur ternaire pour afficher le composant Card dans notre Render, avec un booléen stocké dans le state. Celui ci sera faux tant que le bouton n'aura pas été cliqué. Sinon, on n'affiche tout simplement rien.
 
-6. Maintenant qu'on a réussi à appeler l'API, plus rien ne peut nous arrêter. Créons un nouveau composant SearchPoke comportant une barre de recherche et un bouton : nous voulons afficher la carte du pokémon recherché ! 
+6. Maintenant qu'on a réussi à appeler l'API, plus rien ne peut nous arrêter. Créons un nouveau composant SearchPoke comportant une barre de recherche et un bouton : nous voulons afficher la carte du pokémon recherché !
 
 Dans React, il est conseillé de lier la value d'un input à une clé du state. Faites cela, puis créez une fonction qui mettra à jour le state grâce à l'attribut onChange de l'input.
 
@@ -201,22 +201,19 @@ Passons au bouton ! Vous pouvez utiliser cette icone comme contenu 🔍
 La fonction liée au bouton va être assez similaire à celle du composant RandomPoke, à un détail près. Il va falloir gérer les cas où l'utilisateur rentre un mauvais nom de pokémon.
 Vous pouvez utiliser le ".catch" d'Axios pour gérer les erreurs 400 en cas de mauvais nom.
 
-7. Nous avons maintenant les 3 fonctionnalités de base de notre application. Structurons là pour qu'elle ait un onglet par fonctionnalité. 
+7. Nous avons maintenant les 3 fonctionnalités de base de notre application. Structurons là pour qu'elle ait un onglet par fonctionnalité.
 Nous allons utiliser le module react-router-dom pour cela. Il est pré-installé. Importons dès à présent le module dans App.js :
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 Faites de notre composant Pokédex la page d'accueil. Puis créons un composant Navbar qui va afficher les 3 liens. On l'importera dans nos 3 pages !
+Si vous arrivez à naviguer de page en page, passons à la suite.
 
-
-les route : avec 3 onglets pokédex, random et search (react router)
-
-8. faire un appel à l'API pour afficher le pokédex entier (utilisation de DidMount)
+8. On va maintenant revenir sur nos 3 fonctionnalités, et les améliorer. Tout d'abord, concernant le pokédex, on va cesser d'afficher nos 3 starter pour afficher les 151 premiers pokémon.
 
 9. faire un sélecteur pour afficher le pokédex de différentes générations (utilisation de DidUpdate)
 
