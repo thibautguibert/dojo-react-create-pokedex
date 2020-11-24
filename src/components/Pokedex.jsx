@@ -5,80 +5,105 @@ import './pokedex.css';
 import Card from './Card';
 import Navbar from './Navbar';
 
-// const kantoPokedex = [
-//     {
-//         id: 1,
-//         name: "bulbasaur",
-//         sprites: {
-//             back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
-//             front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-//             back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png",
-//             front_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
-//         },
-//         types: [
-//             "grass", "poison"
-//         ]
-//     },
-//     {
-//         id: 4,
-//         name: "charmander",
-//         sprites: {
-//             back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
-//             front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-//             back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/4.png",
-//             front_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png",
-//         },
-//         types: [
-//             "fire"
-//         ]
-//     },
-//     {
-//         id: 7,
-//         name: "squirtle",
-//         sprites: {
-//             back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png",
-//             front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-//             back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/7.png",
-//             front_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png",
-//         },
-//         types: [
-//             "water"
-//         ]
-//     }
-// ];
-
-
 class Pokedex extends React.Component {
     state = {
-        pokemon: null
+        pokedex: [],
+        start: 0,
+        end: 151,
+        gens: {
+            gen1: [0, 151],
+            gen2: [151, 251],
+            gen3: [251, 386],
+            gen4: [386, 493],
+            gen5: [493, 649],
+            gen6: [649, 721],
+            gen7: [721, 809],
+            gen8: [809, 893]
+        }
     };
 
     componentDidMount() {
-        this.getPokedex();
+        const { start, end } = this.state;
+        this.getPokedex(start, end);
     };
 
-    getPokedex = () => {
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
+    componentDidUpdate(prevProps, prevState) {
+        const { start, end } = this.state;
+        if (prevState.start !== start) {
+            this.getPokedex(start, end);
+        }
+        console.log("new pokedex is loaded");
+    }
+
+    getPokedex = (start, end) => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${end - start}&offset=${start}`)
             .then(res => {
-                const pokeUrl = res.data.results.map(({ url }) => url);
-                console.log(pokeUrl);
-                pokeUrl.forEach(pokemon => {
-                    axios.get(pokemon)
-                        .then(res => res.data)
-                        .then(data => {
-                            this.setState({
-                                pokemon: <Card key={data.id} {...data} />
-                            })
-                        })
-                })
+                const pokeUrls = res.data.results.map(({ url }) => url);
+                this.getAllPokemon(pokeUrls);
             });
     }
 
+    getAllPokemon = (urls) => {
+        let pokeList = [];
+        for (let i = 0; i < urls.length; i++) {
+            axios.get(urls[i])
+                .then(response => response.data)
+                .then(data => {
+                    const newPoke = [{
+                        id: data.id,
+                        name: data.name,
+                        sprites: data.sprites,
+                        types: [
+                            data.types[0].type.name, ""
+                        ]
+                    }];
+                    if (data.types[1]) {
+                        newPoke[0].types[1] = data.types[1].type.name;
+                    }
+                    pokeList = pokeList.concat(newPoke);
+                    if (i === urls.length - 1) {
+                        this.setState({
+                            pokedex: pokeList
+                        })
+                    }
+                })
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            start: this.state.gens[e.target.value][0],
+            end: this.state.gens[e.target.value][1]
+        })
+    }
+
     render() {
+        const { pokedex } = this.state;
         return (
             <div>
                 <Navbar />
-                <div className="pokedex-container" >
+                <div className="pokedex" >
+                    <select name="generation" id="generation" onChange={this.handleChange}>
+                        <option value="gen1">Generation 1 Pokedex (#1 to #151)</option>
+                        <option value="gen2">Generation 2 Pokedex (#152 to #251)</option>
+                        <option value="gen3">Generation 3 Pokedex (#253 to #386)</option>
+                        <option value="gen4">Generation 4 Pokedex (#387 to #493)</option>
+                        <option value="gen5">Generation 5 Pokedex (#494 to #649)</option>
+                        <option value="gen6">Generation 6 Pokedex (#650 to #721)</option>
+                        <option value="gen7">Generation 7 Pokedex (#722 to #809)</option>
+                        <option value="gen8">Generation 8 Pokedex (#810 to #893)</option>
+                    </select>
+                    <div className="pokedex-container">
+                        {pokedex.map(pokemon => (
+                            < Card
+                                key={pokemon.id}
+                                name={pokemon.name}
+                                id={pokemon.id}
+                                sprites={pokemon.sprites}
+                                types={pokemon.types}
+                            />
+                        ))}
+                    </div>
                 </div >
             </div>
         )
