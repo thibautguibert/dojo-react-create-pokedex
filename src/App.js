@@ -11,7 +11,7 @@ import SearchPoke from './components/SearchPoke';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Switch>
           <Route exact path="/" component={Pokedex} />
