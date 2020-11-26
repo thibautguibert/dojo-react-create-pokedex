@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/dojo-react-create-pokedex/static/css/main.d8004473.chunk.css",
-    "main.js": "/dojo-react-create-pokedex/static/js/main.0da7b0b7.chunk.js",
-    "main.js.map": "/dojo-react-create-pokedex/static/js/main.0da7b0b7.chunk.js.map",
-    "runtime-main.js": "/dojo-react-create-pokedex/static/js/runtime-main.faa137fd.js",
-    "runtime-main.js.map": "/dojo-react-create-pokedex/static/js/runtime-main.faa137fd.js.map",
-    "static/js/2.ee9ad2f5.chunk.js": "/dojo-react-create-pokedex/static/js/2.ee9ad2f5.chunk.js",
-    "static/js/2.ee9ad2f5.chunk.js.map": "/dojo-react-create-pokedex/static/js/2.ee9ad2f5.chunk.js.map",
-    "static/js/3.ecf2a4ec.chunk.js": "/dojo-react-create-pokedex/static/js/3.ecf2a4ec.chunk.js",
-    "static/js/3.ecf2a4ec.chunk.js.map": "/dojo-react-create-pokedex/static/js/3.ecf2a4ec.chunk.js.map",
+    "main.css": "/dojo-react-create-pokedex/static/css/main.dd54ff80.chunk.css",
+    "main.js": "/dojo-react-create-pokedex/static/js/main.a32dc0bf.chunk.js",
+    "main.js.map": "/dojo-react-create-pokedex/static/js/main.a32dc0bf.chunk.js.map",
+    "runtime-main.js": "/dojo-react-create-pokedex/static/js/runtime-main.dbed19c8.js",
+    "runtime-main.js.map": "/dojo-react-create-pokedex/static/js/runtime-main.dbed19c8.js.map",
+    "static/js/2.518bafe4.chunk.js": "/dojo-react-create-pokedex/static/js/2.518bafe4.chunk.js",
+    "static/js/2.518bafe4.chunk.js.map": "/dojo-react-create-pokedex/static/js/2.518bafe4.chunk.js.map",
+    "static/js/3.bc6659be.chunk.js": "/dojo-react-create-pokedex/static/js/3.bc6659be.chunk.js",
+    "static/js/3.bc6659be.chunk.js.map": "/dojo-react-create-pokedex/static/js/3.bc6659be.chunk.js.map",
     "index.html": "/dojo-react-create-pokedex/index.html",
-    "static/css/main.d8004473.chunk.css.map": "/dojo-react-create-pokedex/static/css/main.d8004473.chunk.css.map",
-    "static/js/2.ee9ad2f5.chunk.js.LICENSE.txt": "/dojo-react-create-pokedex/static/js/2.ee9ad2f5.chunk.js.LICENSE.txt"
+    "static/css/main.dd54ff80.chunk.css.map": "/dojo-react-create-pokedex/static/css/main.dd54ff80.chunk.css.map",
+    "static/js/2.518bafe4.chunk.js.LICENSE.txt": "/dojo-react-create-pokedex/static/js/2.518bafe4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.faa137fd.js",
-    "static/js/2.ee9ad2f5.chunk.js",
-    "static/css/main.d8004473.chunk.css",
-    "static/js/main.0da7b0b7.chunk.js"
+    "static/js/runtime-main.dbed19c8.js",
+    "static/js/2.518bafe4.chunk.js",
+    "static/css/main.dd54ff80.chunk.css",
+    "static/js/main.a32dc0bf.chunk.js"
   ]
 }
