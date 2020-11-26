@@ -9,38 +9,41 @@ class RandomPoke extends React.Component {
         super();
         this.state = {
             randomDisplay: false,
-            randomPokemon: {
-                id: 0,
-                name: "",
-                sprites: {
-                    back_default: "",
-                    front_default: "",
-                    back_shiny: "",
-                    front_shiny: ""
-                },
-                types: [
-                    "null", ""
-                ]
-            }
+            randomPokemon: []
         }
     }
 
-    getRandomPokemon = () => {
+    componentDidMount() {
+        this.getRandomTeam(6);
+    }
+
+    AddRandomPokemon = () => {
         const random = Math.floor(Math.random() * 898) + 1;
         axios.get(`https://pokeapi.co/api/v2/pokemon/${random}`)
             .then(response => response.data)
             .then(data => {
                 this.setState(prevState => {
-                    let randomPokemon = { ...prevState.randomPokemon };
-                    randomPokemon.types[1] = "";
-                    randomPokemon.id = data.id;
-                    randomPokemon.name = data.name;
-                    randomPokemon.sprites = data.sprites;
-                    randomPokemon.types[0] = data.types[0].type.name;
-                    if (data.types[1]) {
-                        randomPokemon.types[1] = data.types[1].type.name
+                    let newPokemon = {
+                        id: 0,
+                        name: "",
+                        sprites: {
+                            back_default: "",
+                            front_default: "",
+                            back_shiny: "",
+                            front_shiny: ""
+                        },
+                        types: [
+                            "", ""
+                        ]
                     }
-                    return { randomPokemon };
+                    newPokemon.id = data.id;
+                    newPokemon.name = data.name;
+                    newPokemon.sprites = data.sprites;
+                    newPokemon.types[0] = data.types[0].type.name;
+                    if (data.types[1]) {
+                        newPokemon.types[1] = data.types[1].type.name
+                    }
+                    return { randomPokemon: [...prevState.randomPokemon, newPokemon] };
                 })
                 this.setState(
                     { randomDisplay: true }
@@ -48,23 +51,35 @@ class RandomPoke extends React.Component {
             })
     };
 
+    getRandomTeam = (teamSize) => {
+        for (let i = 0; i < teamSize; i++) {
+            this.AddRandomPokemon();
+        }
+    }
+
     render() {
         const { randomPokemon } = this.state;
         return (
-            <div>
+            <div className="random-page">
                 <Navbar />
+                < button
+                    type="button"
+                    className="random"
+                    onClick={() => {
+                        this.setState({ randomPokemon: [] });
+                        this.getRandomTeam(6);
+                    }}
+                > Generate a new team</button>
                 <div className="random-container">
-                    < button
-                        type="button"
-                        className="random"
-                        onClick={this.getRandomPokemon}
-                    > Un pokémon au hasard</button>
-                    {this.state.randomDisplay ? < Card
-                        name={randomPokemon.name}
-                        id={randomPokemon.id}
-                        sprites={randomPokemon.sprites}
-                        types={randomPokemon.types}
-                    /> : ""}
+                    {randomPokemon.map(pokemon => (
+                        < Card
+                            key={pokemon.id}
+                            name={pokemon.name}
+                            id={pokemon.id}
+                            sprites={pokemon.sprites}
+                            types={pokemon.types}
+                        />
+                    ))}
                 </div>
             </div>
         )
