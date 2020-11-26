@@ -54,7 +54,11 @@
     transform: rotate(135deg) translate(-8px, 5px);
 }
 
-@media screen and (max-width: 758px) {
+.navbar .ul-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
     .Burger {
         display: inline-block;
         z-index: 2;
@@ -81,7 +85,6 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        transition: all ease-out 1s;
         z-index: 1;
         font-size: 20px;
     }

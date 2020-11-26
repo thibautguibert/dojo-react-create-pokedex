@@ -7,10 +7,15 @@ class Navbar extends React.Component {
         xcross: false
     }
 
+    componentDidMount() {
+        this.scrollLock();
+    }
+
     componentDidUpdate(prevProps, prevState) {
         const { xcross } = this.state;
         if (prevState.xcross !== xcross) {
             this.scrollLock();
+            console.log("hop");
         }
     }
 
@@ -23,7 +28,7 @@ class Navbar extends React.Component {
         const { xcross } = this.state;
         const scrollPos = document.body;
         const screenW = window.screen.width;
-        if (xcross === true && screenW < 758) {
+        if (xcross === true && screenW < 600) {
             scrollPos.style.overflowY = "hidden";
         } else {
             scrollPos.style.overflowY = "initial";
