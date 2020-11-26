@@ -24,6 +24,7 @@
 .card header .name {
     font-size: 20px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .card header .id{
@@ -173,3 +174,49 @@
 .card .type-container .none {
     display: none;
 }
+
+@media screen and (max-width: 414px){
+    .card {
+        width: 150px;
+        height: 207px;
+        margin: 15px;
+    }
+
+    .card header{
+        height: 40px;
+    }
+
+    .card header .name {
+        font-size: 16px;
+    }
+
+    .card header .id{
+        font-size: 10px;
+    }
+
+    .card .sprite-container .front-sprite {
+        height: 100px;
+    }
+    
+    .card .sprite-container .back-sprite {
+        height: 40px;
+    }
+
+    .card .sprite-container{
+        height: 100px;
+    }
+
+    .card .type-container {
+        height: 40px;
+    }
+
+    .card .type-container .type{
+        font-size: 10px;
+        padding: 4px 10px;
+        border-radius: 15px;
+        border: solid 2px rgba(0,0,0, 0.2);
+        text-transform: capitalize;
+    }
+
+}
+

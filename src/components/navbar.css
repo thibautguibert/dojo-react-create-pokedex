@@ -5,7 +5,7 @@
     background-color: blueviolet;
     padding: 20px;
     align-items: center;
-    color: whitesmoke
+    color: whitesmoke;
 }
 
 .navbar ul a {
@@ -21,4 +21,69 @@
 .navbar ul a:hover {
     color: blueviolet;
     background-color:whitesmoke;
+}
+
+.Burger {
+    display: none;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.Burger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #ECF6FA;
+  margin: 5px 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.25);
+  transition: 1s;
+}
+
+.xcross #first-bar {
+    transform: rotate(225deg) translate(-8px, -5px) ;
+}
+
+.xcross #second-bar {
+    transform: scale(.5) rotate(270deg);
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.xcross #third-bar {
+    transform: rotate(135deg) translate(-8px, 5px);
+}
+
+@media screen and (max-width: 758px) {
+    .Burger {
+        display: inline-block;
+        z-index: 2;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+    
+    .navbar .active {
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 100px;
+        background-color: blueviolet;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        transition: all ease-out 1s;
+        z-index: 1;
+        font-size: 20px;
+    }
+
 }
