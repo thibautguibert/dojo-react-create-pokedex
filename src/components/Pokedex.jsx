@@ -14,12 +14,13 @@ class Pokedex extends React.Component {
             gen1: [0, 151],
             gen2: [151, 251],
             gen3: [251, 386],
-            gen4: [386, 493],
-            gen5: [493, 649],
+            gen4: [386, 494],
+            gen5: [494, 649],
             gen6: [649, 721],
             gen7: [721, 809],
             gen8: [809, 893]
-        }
+        },
+        isLoaded: false
     };
 
     componentDidMount() {
@@ -43,10 +44,10 @@ class Pokedex extends React.Component {
             });
     }
 
-    getAllPokemon = (urls) => {
+    getAllPokemon = async (urls) => {
         let pokeList = [];
         for (let i = 0; i < urls.length; i++) {
-            axios.get(urls[i])
+            await axios.get(urls[i])
                 .then(response => response.data)
                 .then(data => {
                     const newPoke = [{
@@ -67,18 +68,21 @@ class Pokedex extends React.Component {
                         })
                     }
                 })
+
         }
+        this.setState({ isLoaded: true });
     }
 
     handleChange = (e) => {
         this.setState({
             start: this.state.gens[e.target.value][0],
-            end: this.state.gens[e.target.value][1]
+            end: this.state.gens[e.target.value][1],
+            isLoaded: false
         })
     }
 
     render() {
-        const { pokedex } = this.state;
+        const { pokedex, isLoaded } = this.state;
         return (
             <div>
                 <Navbar />
@@ -87,14 +91,14 @@ class Pokedex extends React.Component {
                         <option value="gen1">Generation 1 Pokedex (#1 to #151)</option>
                         <option value="gen2">Generation 2 Pokedex (#152 to #251)</option>
                         <option value="gen3">Generation 3 Pokedex (#253 to #386)</option>
-                        <option value="gen4">Generation 4 Pokedex (#387 to #493)</option>
-                        <option value="gen5">Generation 5 Pokedex (#494 to #649)</option>
+                        <option value="gen4">Generation 4 Pokedex (#387 to #494)</option>
+                        <option value="gen5">Generation 5 Pokedex (#495 to #649)</option>
                         <option value="gen6">Generation 6 Pokedex (#650 to #721)</option>
                         <option value="gen7">Generation 7 Pokedex (#722 to #809)</option>
                         <option value="gen8">Generation 8 Pokedex (#810 to #893)</option>
                     </select>
                     <div className="pokedex-container">
-                        {pokedex.map(pokemon => (
+                        {isLoaded ? pokedex.map(pokemon => (
                             < Card
                                 key={pokemon.id}
                                 name={pokemon.name}
@@ -102,7 +106,9 @@ class Pokedex extends React.Component {
                                 sprites={pokemon.sprites}
                                 types={pokemon.types}
                             />
-                        ))}
+                        ))
+                            : "Pokemon are loading"
+                        }
                     </div>
                 </div >
             </div>
