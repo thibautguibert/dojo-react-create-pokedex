@@ -1,25 +1,11 @@
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import Pokedex from './components/Pokedex';
-import RandomPoke from './components/RandomPoke';
-import SearchPoke from './components/SearchPoke';
 
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={Pokedex} />
-          <Route path="/random-team" component={RandomPoke} />
-          <Route path="/search" component={SearchPoke} />
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      Let start the dojo
+    </div>
   );
 }
 
