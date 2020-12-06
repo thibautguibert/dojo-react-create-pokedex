@@ -44,10 +44,10 @@ class Pokedex extends React.Component {
             });
     }
 
-    getAllPokemon = async (urls) => {
+    getAllPokemon = (urls) => {
         let pokeList = [];
         for (let i = 0; i < urls.length; i++) {
-            await axios.get(urls[i])
+            axios.get(urls[i])
                 .then(response => response.data)
                 .then(data => {
                     const newPoke = [{
